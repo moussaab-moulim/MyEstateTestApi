@@ -21,8 +21,8 @@ class Authentication
         $iat = time();
         $exp = $iat + 60 * 60;
         $payload = array(
-            'iss' => 'http://localhost/', //issuer
-            'aud' => 'http://localhost/', //audience
+            'iss' => 'https://my-estate-test-api.herokuapp.com/', //issuer
+            'aud' => 'https://my-estate-test-api.herokuapp.com/api/', //audience
             'iat' => $iat, //time JWT was issued
             'exp' => $exp //time JWT expires
         );
@@ -55,8 +55,8 @@ class Authentication
                 if ($stmt->rowCount()) :
 
                     $secret_key = $this->key;
-                    $issuer_claim = "http://localhost/"; // this can be the servername
-                    $audience_claim = "http://localhost/";
+                    $issuer_claim = "https://my-estate-test-api.herokuapp.com/"; // this can be the servername
+                    $audience_claim = "https://my-estate-test-api.herokuapp.com/api/";
                     $issuedat_claim = time(); // issued at
                     $notbefore_claim = $issuedat_claim + 10; //not before in seconds
                     $expire_claim = $issuedat_claim + 60 * 60; // expire time in seconds
@@ -111,8 +111,8 @@ class Authentication
                     $password2 = $row['password'];
                     if (password_verify($this->password, $password2)) :
                         $secret_key = $this->key;
-                        $issuer_claim = "http://localhost/"; // this can be the servername
-                        $audience_claim = "http://localhost/";
+                        $issuer_claim = "https://my-estate-test-api.herokuapp.com/"; // this can be the servername
+                        $audience_claim = "https://my-estate-test-api.herokuapp.com/api/";
                         $issuedat_claim = time(); // issued at
                         $notbefore_claim = $issuedat_claim + 10; //not before in seconds
                         $expire_claim = $issuedat_claim + 60 * 60; // expire time in seconds
