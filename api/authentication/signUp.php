@@ -1,6 +1,6 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/MyEstateTestApi/config/database.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/MyEstateTestApi/controllers/authentication.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/config/database.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/controllers/authentication.php';
 
 header("Access-Control-Allow-Origin: * ");
 header("Content-Type: application/json; charset=UTF-8");

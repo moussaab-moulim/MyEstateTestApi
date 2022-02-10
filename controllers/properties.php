@@ -1,7 +1,7 @@
 <?php
 
 
-require $_SERVER['DOCUMENT_ROOT'] . '/MyEstateTestApi/vendor/autoload.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
 use \Firebase\JWT\JWT;
 

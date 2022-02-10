@@ -1,7 +1,7 @@
 <?php
 
 
-require $_SERVER['DOCUMENT_ROOT'] . '/MyEstateTestApi/vendor/autoload.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
 use \Firebase\JWT\JWT;
 
@@ -21,7 +21,7 @@ class Authentication
         $iat = time();
         $exp = $iat + 60 * 60;
         $payload = array(
-            'iss' => 'http://localhost/MyEstateTestApi/', //issuer
+            'iss' => 'http://localhost/', //issuer
             'aud' => 'http://localhost/', //audience
             'iat' => $iat, //time JWT was issued
             'exp' => $exp //time JWT expires
@@ -55,7 +55,7 @@ class Authentication
                 if ($stmt->rowCount()) :
 
                     $secret_key = $this->key;
-                    $issuer_claim = "http://localhost/MyEstateTestApi/"; // this can be the servername
+                    $issuer_claim = "http://localhost/"; // this can be the servername
                     $audience_claim = "http://localhost/";
                     $issuedat_claim = time(); // issued at
                     $notbefore_claim = $issuedat_claim + 10; //not before in seconds
@@ -111,7 +111,7 @@ class Authentication
                     $password2 = $row['password'];
                     if (password_verify($this->password, $password2)) :
                         $secret_key = $this->key;
-                        $issuer_claim = "http://localhost/MyEstateTestApi/"; // this can be the servername
+                        $issuer_claim = "http://localhost/"; // this can be the servername
                         $audience_claim = "http://localhost/";
                         $issuedat_claim = time(); // issued at
                         $notbefore_claim = $issuedat_claim + 10; //not before in seconds
