@@ -49,7 +49,7 @@ class Authentication
             $stmt->bindParam(':email', $this->email);
             $stmt->bindParam(':username', $this->username);
             $password_hash = password_hash($this->password, PASSWORD_BCRYPT);
-            $stmt->bindParam(':password', $this->password);
+            $stmt->bindParam(':password', $password_hash);
             if ($stmt->execute()) :
                 echo $stmt->rowCount();
                 if ($stmt->rowCount()) :
