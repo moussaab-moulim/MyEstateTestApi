@@ -51,7 +51,7 @@ class Authentication
             $password_hash = password_hash($this->password, PASSWORD_BCRYPT);
             $stmt->bindParam(':password', $password_hash);
             if ($stmt->execute()) :
-                echo $stmt->rowCount();
+                $stmt->rowCount();
                 if ($stmt->rowCount()) :
 
                     $secret_key = $this->key;
@@ -84,7 +84,7 @@ class Authentication
                     return false;
                 endif;
             else :
-                echo "here" . $query;
+                "here" . $query;
                 return false;
             endif;
         } catch (\Exception $e) {
@@ -105,7 +105,6 @@ class Authentication
 
 
             if ($stmt->execute()) :
-                echo $stmt->rowCount();
                 if ($stmt->rowCount()) :
                     $row = $stmt->fetch(PDO::FETCH_ASSOC);
                     $password2 = $row['password'];

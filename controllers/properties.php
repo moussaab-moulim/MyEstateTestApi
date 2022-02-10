@@ -93,7 +93,7 @@ class Properties
                 $stmt->bindParam(":id", $this->id);
 
                 if ($stmt->execute()) :
-                    echo $stmt->rowCount();
+                    $stmt->rowCount();
                     if ($stmt->rowCount()) :
                         return true;
                     else :

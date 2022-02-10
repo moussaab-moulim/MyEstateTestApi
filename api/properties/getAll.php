@@ -14,7 +14,7 @@ $items = new Properties($db);
 $stmt = $items->getAll();
 if ($stmt) :
     $itemCount = $stmt->rowCount();
-    echo $stmt->rowCount();
+    $stmt->rowCount();
     if ($itemCount > 0) :
         http_response_code(200);
         $arr = array();
