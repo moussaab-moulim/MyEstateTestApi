@@ -21,8 +21,8 @@ $user->username = $data->username;
 $signin = $user->signIn();
 if (strpos($signin["message"], 'Successful')) :
     http_response_code(200);
-    echo json_encode($user->signIn());
+    echo json_encode($signin);
 else :
     http_response_code(400);
-    echo json_encode($user->signIn());
+    echo json_encode($signin);
 endif;
