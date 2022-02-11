@@ -22,7 +22,9 @@ $signin = $user->signIn();
 if (strpos($signin["message"], 'Successful')) :
     header('HTTP/1.0 200 OK');
     echo json_encode($signin);
+    exit;
 else :
     header("HTTP/1.0 400 Bad Request");
     echo json_encode($signin);
+    exit;
 endif;
