@@ -72,7 +72,7 @@ class Authentication
                             "password" => $password_hash
                         )
                     );
-                    $jwt = JWT::encode($token, $secret_key);
+                    $jwt = JWT::encode($token, $this->key, 'HS512');
                     return array(
                         "message" => "Successful Registration.",
                         "jwt" => $jwt,
@@ -127,7 +127,7 @@ class Authentication
                                 "password" => $password2
                             )
                         );
-                        $jwt = JWT::encode($token, $secret_key);
+                        $jwt = JWT::encode($token, $this->key, 'HS512');
                         return array(
                             "message" => "Successful login.",
                             "jwt" => $jwt,
