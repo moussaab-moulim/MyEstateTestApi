@@ -31,7 +31,8 @@ class Properties
                 $statement = $this->conn->prepare($query);
                 $statement->execute();
                 return $statement;
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
+                echo 'Caught exception: ',  $e->getMessage(), "\n";
                 return false;
             }
         else :
