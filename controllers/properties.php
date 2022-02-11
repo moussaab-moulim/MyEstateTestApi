@@ -19,6 +19,8 @@ class Properties
     public function getAll()
     {
         $headers = apache_request_headers();
+        echo $headers['authorization'];
+        echo $headers['Authorization'];
         if (isset($headers['authorization'])) :
             $token = str_replace('Bearer ', '', $headers['authorization']);
             try {
