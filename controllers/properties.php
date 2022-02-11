@@ -19,8 +19,8 @@ class Properties
     public function getAll()
     {
         $headers = apache_request_headers();
-        if (isset($headers['Authorization'])) :
-            $token = str_replace('Bearer ', '', $headers['Authorization']);
+        if (isset($headers['authorization'])) :
+            $token = str_replace('Bearer ', '', $headers['authorization']);
             try {
                 $token = JWT::decode($token, $this->key, array('HS512'));
                 $query = "SELECT * FROM " . $this->db_table . "
@@ -40,8 +40,8 @@ class Properties
     public function getOne($id)
     {
         $headers = apache_request_headers();
-        if (isset($headers['Authorization'])) :
-            $token = str_replace('Bearer ', '', $headers['Authorization']);
+        if (isset($headers['authorization'])) :
+            $token = str_replace('Bearer ', '', $headers['authorization']);
             try {
                 $token = JWT::decode($token, $this->key, array('HS512'));
                 $query = "SELECT * FROM " . $this->db_table . "
@@ -63,8 +63,8 @@ class Properties
     public function update()
     {
         $headers = apache_request_headers();
-        if (isset($headers['Authorization'])) :
-            $token = str_replace('Bearer ', '', $headers['Authorization']);
+        if (isset($headers['authorization'])) :
+            $token = str_replace('Bearer ', '', $headers['authorization']);
             try {
                 $token = JWT::decode($token, $this->key, array('HS512'));
                 $query = "UPDATE " . $this->db_table . "
@@ -112,8 +112,8 @@ class Properties
     public function create()
     {
         $headers = apache_request_headers();
-        if (isset($headers['Authorization'])) :
-            $token = str_replace('Bearer ', '', $headers['Authorization']);
+        if (isset($headers['authorization'])) :
+            $token = str_replace('Bearer ', '', $headers['authorization']);
             try {
                 $token = JWT::decode($token, $this->key, array('HS512'));
                 $query = "INSERT INTO " . $this->db_table . "
@@ -157,8 +157,8 @@ class Properties
     public function delete()
     {
         $headers = apache_request_headers();
-        if (isset($headers['Authorization'])) :
-            $token = str_replace('Bearer ', '', $headers['Authorization']);
+        if (isset($headers['authorization'])) :
+            $token = str_replace('Bearer ', '', $headers['authorization']);
             try {
                 $token = JWT::decode($token, $this->key, array('HS512'));
                 $query = "SELECT id from " . $this->db_table . "
