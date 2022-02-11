@@ -22,7 +22,7 @@ $item->type = $data->type;
 $item->size = $data->size;
 
 if ($item->update()) :
-    http_response_code(200);
+    header('HTTP/1.0 200 OK');
     echo json_encode(
         array(
             "type" => "success",

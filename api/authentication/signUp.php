@@ -21,9 +21,9 @@ $user->username = $data->username;
 
 $signup = $user->signUp();
 if ($signup) :
-    http_response_code(200);
+    header('HTTP/1.0 200 OK');
     echo json_encode($signup);
 else :
-    http_response_code(400);
+    header("HTTP/1.0 400 Bad Request");
     echo json_encode(array("message" => "Unable to register the user."));
 endif;

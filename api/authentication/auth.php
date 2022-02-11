@@ -11,7 +11,7 @@ $db = $database->getConnection();
 $token = new Authentication($db);
 
 if ($token->auth()) :
-    http_response_code(200);
+    header('HTTP/1.0 200 OK');
     echo json_encode(
         $token->auth()
     );

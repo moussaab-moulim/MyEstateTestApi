@@ -20,9 +20,9 @@ $user->username = $data->username;
 
 $signin = $user->signIn();
 if (strpos($signin["message"], 'Successful')) :
-    http_response_code(200);
+    header('HTTP/1.0 200 OK');
     echo json_encode($signin);
 else :
-    http_response_code(400);
+    header("HTTP/1.0 400 Bad Request");
     echo json_encode($signin);
 endif;

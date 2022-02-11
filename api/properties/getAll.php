@@ -16,7 +16,7 @@ if ($stmt) :
     $itemCount = $stmt->rowCount();
     $stmt->rowCount();
     if ($itemCount > 0) :
-        http_response_code(200);
+        header('HTTP/1.0 200 OK');
         $arr = array();
         $arr['response'] = array();
         $arr['count'] = $itemCount;
