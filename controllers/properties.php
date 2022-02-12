@@ -20,9 +20,10 @@ class Properties
     {
         $headers = apache_request_headers();
         echo "min" . $headers['authorization'];
-        echo "maj" . $headers['Authorization'];
+
         if (isset($headers['authorization'])) :
             $token = str_replace('Bearer ', '', $headers['authorization']);
+            echo "maj" . $token;
             try {
                 $token = JWT::decode($token, $this->key, array('HS512'));
                 $query = "SELECT * FROM " . $this->db_table . "
