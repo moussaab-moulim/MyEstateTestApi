@@ -25,6 +25,7 @@ class Properties
             $token = str_replace('Bearer ', '', $headers['Authorization']);
             //echo "maj" . $token;
             try {
+                JWT::$leeway = 5;
                 $token = JWT::decode($token, $this->key, array('HS512'));
                 $query = "SELECT * FROM " . $this->db_table . "
                 ORDER BY
