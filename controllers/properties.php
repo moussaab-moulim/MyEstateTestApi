@@ -19,11 +19,11 @@ class Properties
     public function getAll()
     {
         $headers = apache_request_headers();
-        echo "min" . $headers['Authorization'];
+        //echo "min" . $headers['Authorization'];
 
         if (isset($headers['Authorization'])) :
             $token = str_replace('Bearer ', '', $headers['Authorization']);
-            echo "maj" . $token;
+            //echo "maj" . $token;
             try {
                 $token = JWT::decode($token, $this->key, array('HS512'));
                 $query = "SELECT * FROM " . $this->db_table . "
