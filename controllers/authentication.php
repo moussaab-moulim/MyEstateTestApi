@@ -87,7 +87,6 @@ class Authentication
                 return false;
             endif;
         } catch (\Exception $e) {
-            echo $e->getMessage();
             return false;
         }
     }
