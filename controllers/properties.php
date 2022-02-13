@@ -18,50 +18,50 @@ class Properties
     }
     public function getAll()
     {
-        $headers = apache_request_headers();
+        // $headers = apache_request_headers();
         //echo "min" . $headers['Authorization'];
 
-        if (isset($headers['Authorization'])) :
-            $token = str_replace('Bearer ', '', $headers['Authorization']);
-            //echo "maj" . $token;
-            try {
-                JWT::$leeway = 60;
-                $token = JWT::decode($token, $this->key, array('HS512'));
-                $query = "SELECT * FROM " . $this->db_table . "
+        // if (isset($headers['Authorization'])) :
+        // $token = str_replace('Bearer ', '', $headers['Authorization']);
+        //echo "maj" . $token;
+        try {
+            // JWT::$leeway = 60;
+            // $token = JWT::decode($token, $this->key, array('HS512'));
+            $query = "SELECT * FROM " . $this->db_table . "
                 ORDER BY
                     id ASC";
-                $statement = $this->conn->prepare($query);
-                $statement->execute();
-                return $statement;
-            } catch (Exception $e) {
-                echo 'Caught exception: ',  $e->getMessage(), "\n";
-                return false;
-            }
-        else :
+            $statement = $this->conn->prepare($query);
+            $statement->execute();
+            return $statement;
+        } catch (Exception $e) {
+            //echo 'Caught exception: ',  $e->getMessage(), "\n";
             return false;
-        endif;
+        }
+        // else :
+        //     return false;
+        // endif;
     }
 
     public function getOne($id)
     {
-        $headers = apache_request_headers();
-        if (isset($headers['Authorization'])) :
-            $token = str_replace('Bearer ', '', $headers['Authorization']);
-            try {
-                $token = JWT::decode($token, $this->key, array('HS512'));
-                $query = "SELECT * FROM " . $this->db_table . "
+        // $headers = apache_request_headers();
+        // if (isset($headers['Authorization'])) :
+        // $token = str_replace('Bearer ', '', $headers['Authorization']);
+        try {
+            // $token = JWT::decode($token, $this->key, array('HS512'));
+            $query = "SELECT * FROM " . $this->db_table . "
                 WHERE
                     id= :id";
-                $statement = $this->conn->prepare($query);
-                $statement->bindParam(":id", $id);
-                $statement->execute();
-                return $statement;
-            } catch (\Exception $e) {
-                return false;
-            }
-        else :
+            $statement = $this->conn->prepare($query);
+            $statement->bindParam(":id", $id);
+            $statement->execute();
+            return $statement;
+        } catch (\Exception $e) {
             return false;
-        endif;
+        }
+        // else :
+        //     return false;
+        // endif;
     }
 
 
