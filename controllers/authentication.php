@@ -84,10 +84,10 @@ class Authentication
                     return false;
                 endif;
             else :
-                "here" . $query;
                 return false;
             endif;
         } catch (\Exception $e) {
+            echo $e->getMessage();
             return false;
         }
     }
